@@ -1,42 +1,42 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { TrustBar } from "@/components/home/TrustBar";
+import { VoiceQualitySection } from "@/components/home/VoiceQualitySection";
 import { CapabilitiesGrid } from "@/components/home/CapabilitiesGrid";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { IntegrationsSection } from "@/components/home/IntegrationsSection";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { PricingSection } from "@/components/home/PricingSection";
-import { IntegrationsSection } from "@/components/home/IntegrationsSection";
-import { ROISection } from "@/components/home/ROISection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "VoiceAxis — AI Call Center for Modern Businesses",
+  title: "VoiceAxis — AI Call Center Platform for Natural Business Conversations",
   description:
-    "VoiceAxis is an AI call center platform that automates inbound calls, qualifies leads, books appointments, and runs outbound campaigns using AI voice agents. 24/7 availability. From €99/month.",
+    "VoiceAxis is an AI call center platform with natural-sounding voice agents for inbound and outbound calling. Multilingual support, conversation workflows, CRM integrations, and scalable phone automation. From €99/month.",
   keywords: [
     "AI call center",
-    "AI receptionist",
-    "AI voice agent",
     "AI voice agents",
     "AI phone automation",
-    "AI call automation",
-    "automated call center",
+    "AI receptionist",
+    "AI outbound calling",
+    "multilingual AI calling",
     "AI appointment booking",
     "AI lead qualification",
-    "AI outbound calling",
-    "call center automation platform",
-    "AI phone system for business",
+    "business phone automation",
+    "AI call infrastructure",
+    "conversation workflows",
+    "scalable call handling",
   ],
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
-    title: "VoiceAxis — AI Call Center Platform | Automate Every Business Call",
+    title: "VoiceAxis — AI Call Center Platform | Natural Voice Agents for Business",
     description:
-      "AI voice agents that answer every inbound call, qualify leads, book appointments, and run outbound campaigns — 24/7. Enterprise-grade AI phone operations from €99/month.",
+      "AI voice agents that handle inbound and outbound calls with natural conversations, multilingual support, and seamless business integrations. Scalable AI call center infrastructure from €99/month.",
     type: "website",
     url: siteConfig.url,
   },
@@ -49,7 +49,7 @@ const homepageSchema = {
   url: siteConfig.url,
   name: "VoiceAxis — AI Call Center Platform",
   description:
-    "AI call center infrastructure that automates inbound calls, outbound campaigns, lead qualification, and appointment booking for modern businesses.",
+    "AI call center platform with natural-sounding voice agents for inbound and outbound calling, multilingual support, conversation workflows, and business integrations.",
   isPartOf: { "@id": `${siteConfig.url}/#website` },
   about: { "@id": `${siteConfig.url}/#software` },
   primaryImageOfPage: { "@id": `${siteConfig.url}/#logo` },
@@ -61,9 +61,37 @@ const homepageSchema = {
   },
 };
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${siteConfig.url}/#software`,
+  name: "VoiceAxis",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "AI call center platform for natural inbound and outbound business conversations. Features include AI voice agents, multilingual calling, appointment booking, lead qualification, workflow automation, and CRM integrations.",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "99",
+    offerCount: "3",
+  },
+  featureList: [
+    "Natural AI voice agents",
+    "Inbound and outbound calling",
+    "Multilingual support (12+ languages)",
+    "AI appointment booking",
+    "AI lead qualification",
+    "Conversation workflows",
+    "CRM integrations",
+    "Analytics and transcripts",
+    "Webhook and API access",
+  ],
+};
+
 const relatedLinks = [
-  { label: "AI Receptionist", href: "/ai-receptionist", desc: "24/7 inbound call answering" },
-  { label: "AI Outbound Calling", href: "/ai-outbound-calling", desc: "Automated sales campaigns" },
+  { label: "AI Receptionist", href: "/ai-receptionist", desc: "24/7 inbound call handling" },
+  { label: "AI Outbound Calling", href: "/ai-outbound-calling", desc: "Automated calling campaigns" },
   { label: "AI Appointment Booking", href: "/ai-appointment-booking", desc: "Calendar automation" },
   { label: "AI Voice Agent", href: "/ai-voice-agent", desc: "What is an AI voice agent?" },
   { label: "AI Call Automation", href: "/ai-call-automation", desc: "How call automation works" },
@@ -79,14 +107,18 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
       <Hero />
       <TrustBar />
+      <VoiceQualitySection />
       <CapabilitiesGrid />
       <HowItWorks />
+      <IntegrationsSection />
       <IndustriesSection />
       <PricingSection />
-      <IntegrationsSection />
-      <ROISection />
       <FAQSection />
       <InternalLinks heading="Explore the full AI call center platform" links={relatedLinks} />
       <FinalCTA />

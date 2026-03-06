@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PhoneCall, Star } from "lucide-react";
+import { ArrowRight, Mic } from "lucide-react";
 
 export function FinalCTA() {
   return (
@@ -29,37 +29,29 @@ export function FinalCTA() {
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-xl shadow-blue-500/30 mb-8 mx-auto"
             aria-hidden="true"
           >
-            <PhoneCall className="w-7 h-7 text-white" />
-          </div>
-
-          {/* Social proof */}
-          <div className="flex items-center justify-center gap-1.5 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
-            ))}
-            <span className="text-slate-400 text-sm ml-1">Trusted by 500+ businesses</span>
+            <Mic className="w-7 h-7 text-white" />
           </div>
 
           <h2
             id="cta-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
           >
-            Start automating your
+            Deploy AI voice agents
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              business calls today.
+              for your business.
             </span>
           </h2>
 
           <p className="text-slate-300 text-xl leading-relaxed mb-4 max-w-2xl mx-auto">
-            Deploy AI voice agents that answer every call, qualify every lead, and book every appointment — automatically.
+            Natural conversations. Inbound and outbound calling. Multilingual support. Business integrations. All in one AI call center platform.
           </p>
           <p className="text-slate-400 text-base mb-10 max-w-xl mx-auto">
-            Join 500+ healthcare clinics, real estate teams, home service companies, and agencies already running AI phone operations with VoiceAxis.
+            Trusted by modern businesses across healthcare, real estate, home services, and more.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
+            <Link href="/pricing">
               <Button
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/25 hover:shadow-blue-500/35 transition-all px-8 h-13 text-base font-semibold"

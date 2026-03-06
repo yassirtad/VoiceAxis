@@ -7,7 +7,7 @@ import {
   CalendarCheck,
   PhoneOutgoing,
   Headphones,
-  PhoneMissed,
+  GitBranch,
 } from "lucide-react";
 import Link from "next/link";
 import { coreFeatures } from "@/config/features";
@@ -18,7 +18,7 @@ const iconMap: Record<string, React.ElementType> = {
   CalendarCheck,
   PhoneOutgoing,
   HeadphonesIcon: Headphones,
-  PhoneMissed,
+  GitBranch,
 };
 
 const gradients = [
@@ -41,7 +41,7 @@ const iconColors = [
 
 export function CapabilitiesGrid() {
   return (
-    <section className="py-24 bg-[#0A0F1E]">
+    <section className="py-24 bg-[#0A0F1E]" aria-labelledby="capabilities-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,17 +51,20 @@ export function CapabilitiesGrid() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
-            Core Capabilities
+            Platform Capabilities
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Everything your call center needs,
+          <h2
+            id="capabilities-heading"
+            className="text-4xl sm:text-5xl font-bold text-white mb-4"
+          >
+            One platform. Every business call,
             <br />
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              fully automated.
+              fully handled.
             </span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Six core AI modules that handle every phase of your business phone operations — from first contact to closed deal.
+            Six integrated AI calling modules — from inbound reception to outbound campaigns, lead qualification, booking, support, and workflow automation.
           </p>
         </motion.div>
 
@@ -78,16 +81,16 @@ export function CapabilitiesGrid() {
                 className={`group relative p-6 rounded-2xl bg-gradient-to-br ${gradients[i]} border transition-all duration-300 cursor-pointer`}
               >
                 <div className={`inline-flex p-3 rounded-xl border ${iconColors[i]} mb-5`}>
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="text-white font-bold text-lg mb-2">{feature.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-5">
                   {feature.description}
                 </p>
-                <ul className="space-y-1.5">
+                <ul className="space-y-1.5" aria-label={`${feature.title} features`}>
                   {feature.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-center gap-2 text-xs text-slate-400">
-                      <span className="w-1 h-1 rounded-full bg-slate-500" />
+                      <span className="w-1 h-1 rounded-full bg-slate-500" aria-hidden="true" />
                       {bullet}
                     </li>
                   ))}
@@ -104,8 +107,11 @@ export function CapabilitiesGrid() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link href="/solutions" className="text-blue-400 hover:text-blue-300 text-sm font-medium inline-flex items-center gap-1 transition-colors">
-            See full platform capabilities →
+          <Link
+            href="/solutions"
+            className="text-blue-400 hover:text-blue-300 text-sm font-medium inline-flex items-center gap-1 transition-colors"
+          >
+            Explore the full platform →
           </Link>
         </motion.div>
       </div>

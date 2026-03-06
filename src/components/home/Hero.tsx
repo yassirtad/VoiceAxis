@@ -3,13 +3,20 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PhoneCall, Zap } from "lucide-react";
+import { ArrowRight, Mic, Globe, Zap, GitBranch } from "lucide-react";
 
 const flowSteps = [
-  { icon: "📞", label: "Customer Call", color: "from-blue-500/20 to-blue-600/10 border-blue-500/30" },
-  { icon: "🤖", label: "AI Voice Agent", color: "from-violet-500/20 to-violet-600/10 border-violet-500/30" },
-  { icon: "✅", label: "Lead Qualified", color: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/30" },
-  { icon: "📅", label: "Appointment Booked", color: "from-emerald-500/20 to-emerald-600/10 border-emerald-500/30" },
+  { icon: "📞", label: "Inbound Call", color: "from-blue-500/20 to-blue-600/10 border-blue-500/30" },
+  { icon: "🎙️", label: "AI Voice Agent", color: "from-violet-500/20 to-violet-600/10 border-violet-500/30" },
+  { icon: "💬", label: "Natural Conversation", color: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/30" },
+  { icon: "✅", label: "Outcome Delivered", color: "from-emerald-500/20 to-emerald-600/10 border-emerald-500/30" },
+];
+
+const pillFeatures = [
+  { icon: Mic, label: "Natural AI Voice" },
+  { icon: Globe, label: "Multilingual" },
+  { icon: Zap, label: "Inbound & Outbound" },
+  { icon: GitBranch, label: "Workflow Automation" },
 ];
 
 export function Hero() {
@@ -43,10 +50,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-6"
-              aria-label="Category: AI Call Center Infrastructure"
+              aria-label="Category: AI Voice Platform"
             >
               <Zap className="w-3 h-3" aria-hidden="true" />
-              AI Call Center Infrastructure
+              AI Voice Platform
             </motion.div>
 
             <motion.h1
@@ -57,7 +64,7 @@ export function Hero() {
             >
               AI Call Center{" "}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                for Modern Businesses.
+                for Natural, Scalable Conversations.
               </span>
             </motion.h1>
 
@@ -67,8 +74,27 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8 max-w-lg"
             >
-              Automate inbound calls, qualify leads, book appointments, and run outbound campaigns with AI voice agents — 24/7, with zero hold time.
+              Automate inbound and outbound calls with AI voice agents that sound natural, handle real conversations, and integrate with your business workflows.
             </motion.p>
+
+            {/* Feature pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="flex flex-wrap gap-2 mb-8"
+              aria-label="Platform highlights"
+            >
+              {pillFeatures.map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-medium"
+                >
+                  <Icon className="w-3 h-3 text-cyan-400" aria-hidden="true" />
+                  {label}
+                </div>
+              ))}
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +102,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap gap-3 mb-10"
             >
-              <Link href="/contact">
+              <Link href="/pricing">
                 <Button
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/25 hover:shadow-blue-500/35 transition-all px-6 h-12 font-semibold"
@@ -107,19 +133,19 @@ export function Hero() {
             >
               {[
                 { value: "24/7", label: "Always On" },
-                { value: "< 1s", label: "Answer Speed" },
-                { value: "10M+", label: "Calls Handled" },
+                { value: "< 1s", label: "Response Time" },
+                { value: "12+", label: "Languages" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <dt className="text-xs text-slate-500 mt-0.5">{stat.label}</dt>
                   <dd className="text-xl font-bold text-white">{stat.value}</dd>
+                  <dt className="text-xs text-slate-500 mt-0.5">{stat.label}</dt>
                 </div>
               ))}
             </motion.dl>
           </div>
 
-          {/* Right: Animated Flow */}
-          <div className="relative" aria-label="AI call automation flow visualization" role="img">
+          {/* Right: Animated Platform Visual */}
+          <div className="relative" aria-label="AI call platform visualization" role="img">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -132,10 +158,10 @@ export function Hero() {
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
                     <span className="text-xs text-emerald-400 font-medium">LIVE</span>
                   </div>
-                  <span className="text-xs text-slate-500">AI Operations Center</span>
+                  <span className="text-xs text-slate-500">VoiceAxis Platform</span>
                 </div>
 
-                <ol className="space-y-3" aria-label="Call automation steps">
+                <ol className="space-y-3" aria-label="AI call platform steps">
                   {flowSteps.map((step, i) => (
                     <motion.li
                       key={step.label}
@@ -179,8 +205,8 @@ export function Hero() {
                     { value: "100%", label: "Answered" },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
-                      <dt className="text-xs text-slate-500 order-2">{stat.label}</dt>
-                      <dd className="text-xl font-bold text-white order-1">{stat.value}</dd>
+                      <dd className="text-xl font-bold text-white">{stat.value}</dd>
+                      <dt className="text-xs text-slate-500">{stat.label}</dt>
                     </div>
                   ))}
                 </dl>
@@ -190,18 +216,18 @@ export function Hero() {
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -top-4 -right-4 bg-emerald-500/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
-                aria-label="Appointment booked confirmation"
+                aria-label="Multilingual support confirmation"
               >
-                Appointment Booked ✓
+                🌍 Multilingual Support ✓
               </motion.div>
               <motion.div
                 animate={{ y: [4, -4, 4] }}
                 transition={{ duration: 3.5, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 bg-[#0D1526] border border-white/10 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5"
-                aria-label="Leads captured today counter"
+                aria-label="Natural voice performance indicator"
               >
-                <PhoneCall className="w-3 h-3 text-blue-400" aria-hidden="true" />
-                +48 leads captured today
+                <Mic className="w-3 h-3 text-cyan-400" aria-hidden="true" />
+                Natural voice · Sub-1s response
               </motion.div>
             </motion.div>
           </div>

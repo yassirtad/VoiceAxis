@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Star, Zap, Award } from "lucide-react";
+import { Shield, Globe, Zap, Activity } from "lucide-react";
 
 const stats = [
-  { value: "10M+", label: "Calls automated", icon: Zap },
-  { value: "500+", label: "Businesses using AI ops", icon: Star },
+  { value: "10M+", label: "Calls handled", icon: Zap },
+  { value: "12+", label: "Languages supported", icon: Globe },
   { value: "99.9%", label: "Platform uptime SLA", icon: Shield },
-  { value: "<1s", label: "Average answer speed", icon: Award },
+  { value: "<1s", label: "Voice response latency", icon: Activity },
 ];
 
 const integrationLogos = [
@@ -22,7 +22,7 @@ const integrationLogos = [
 export function TrustBar() {
   return (
     <section
-      aria-label="Platform statistics and social proof"
+      aria-label="Platform statistics and integrations"
       className="py-14 bg-[#07111D] border-y border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export function TrustBar() {
         {/* Integrates with */}
         <div className="text-center">
           <p className="text-xs font-medium text-slate-500 uppercase tracking-widest mb-4">
-            Integrates with your existing stack
+            Connects with your existing business tools
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {integrationLogos.map((logo) => (
