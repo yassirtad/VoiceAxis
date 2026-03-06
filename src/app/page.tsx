@@ -1,65 +1,95 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Hero } from "@/components/home/Hero";
+import { TrustBar } from "@/components/home/TrustBar";
+import { CapabilitiesGrid } from "@/components/home/CapabilitiesGrid";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { IndustriesSection } from "@/components/home/IndustriesSection";
+import { PricingSection } from "@/components/home/PricingSection";
+import { IntegrationsSection } from "@/components/home/IntegrationsSection";
+import { ROISection } from "@/components/home/ROISection";
+import { FAQSection } from "@/components/home/FAQSection";
+import { FinalCTA } from "@/components/home/FinalCTA";
+import { InternalLinks } from "@/components/sections/InternalLinks";
+import { siteConfig } from "@/config/site";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "VoiceAxis — AI Call Center for Modern Businesses",
+  description:
+    "VoiceAxis is an AI call center platform that automates inbound calls, qualifies leads, books appointments, and runs outbound campaigns using AI voice agents. 24/7 availability. From €99/month.",
+  keywords: [
+    "AI call center",
+    "AI receptionist",
+    "AI voice agent",
+    "AI voice agents",
+    "AI phone automation",
+    "AI call automation",
+    "automated call center",
+    "AI appointment booking",
+    "AI lead qualification",
+    "AI outbound calling",
+    "call center automation platform",
+    "AI phone system for business",
+  ],
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  openGraph: {
+    title: "VoiceAxis — AI Call Center Platform | Automate Every Business Call",
+    description:
+      "AI voice agents that answer every inbound call, qualify leads, book appointments, and run outbound campaigns — 24/7. Enterprise-grade AI phone operations from €99/month.",
+    type: "website",
+    url: siteConfig.url,
+  },
+};
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.url}/#webpage`,
+  url: siteConfig.url,
+  name: "VoiceAxis — AI Call Center Platform",
+  description:
+    "AI call center infrastructure that automates inbound calls, outbound campaigns, lead qualification, and appointment booking for modern businesses.",
+  isPartOf: { "@id": `${siteConfig.url}/#website` },
+  about: { "@id": `${siteConfig.url}/#software` },
+  primaryImageOfPage: { "@id": `${siteConfig.url}/#logo` },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+    ],
+  },
+};
+
+const relatedLinks = [
+  { label: "AI Receptionist", href: "/ai-receptionist", desc: "24/7 inbound call answering" },
+  { label: "AI Outbound Calling", href: "/ai-outbound-calling", desc: "Automated sales campaigns" },
+  { label: "AI Appointment Booking", href: "/ai-appointment-booking", desc: "Calendar automation" },
+  { label: "AI Voice Agent", href: "/ai-voice-agent", desc: "What is an AI voice agent?" },
+  { label: "AI Call Automation", href: "/ai-call-automation", desc: "How call automation works" },
+  { label: "AI Phone System", href: "/ai-phone-system", desc: "Replace your phone system" },
+  { label: "AI Lead Qualification", href: "/ai-lead-qualification", desc: "Qualify every inbound lead" },
+  { label: "View All Solutions", href: "/solutions", desc: "Full platform overview" },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
+      />
+      <Hero />
+      <TrustBar />
+      <CapabilitiesGrid />
+      <HowItWorks />
+      <IndustriesSection />
+      <PricingSection />
+      <IntegrationsSection />
+      <ROISection />
+      <FAQSection />
+      <InternalLinks heading="Explore the full AI call center platform" links={relatedLinks} />
+      <FinalCTA />
+    </>
   );
 }
